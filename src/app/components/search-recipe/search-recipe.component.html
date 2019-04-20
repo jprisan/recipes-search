@@ -1,0 +1,19 @@
+<h1>Busador: <small> {{ termino }}</small></h1>
+<hr>
+<div class="row animated fadeIn fast" *ngIf="recipes.length == 0">
+  <div class="col-md-12">
+    <div class="alert alert-info" role="alert">
+      No existen resultados con el termino: {{ termino }}
+
+    </div>
+  </div>
+</div>
+
+
+
+<div class="card-columns">
+
+    <app-recipe-card [recipe]="recipe" [index]="recipe.idx" *ngFor="let recipe of recipes"></app-recipe-card>
+
+
+</div>

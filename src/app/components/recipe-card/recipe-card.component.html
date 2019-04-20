@@ -1,0 +1,9 @@
+<div class="card text-center animated fadeIn fast">
+  <img *ngIf="recipe.thumbnail" class="card-img-top " [src]="recipe.thumbnail" [alt]="recipe.title">
+  <img *ngIf="!recipe.thumbnail" class="card-img-top " src="../../../assets/img/receta.png" [alt]="recipe.title">
+  <div class="card-block">
+    <h4 class="card-title">{{ recipe.title }}</h4>
+    <p class="card-text">{{ recipe.ingredients }}</p>
+    <a class="btn btn-outline-primary btn-block" [href]="recipe.href">Ver mas...</a>
+  </div>
+</div>
