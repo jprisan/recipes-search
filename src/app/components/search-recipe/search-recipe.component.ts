@@ -1,6 +1,6 @@
-import { RecipeService } from 'src/app/services/recipe.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { RecipeService } from 'src/app/services/recipe.service';
 
 @Component({
   selector: 'app-search-recipe',
@@ -16,10 +16,9 @@ export class SearchRecipeComponent implements OnInit {
               private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    this.activatedRoute.params.subscribe( params => {
+    this.activatedRoute.params.subscribe(params => {
       this.termino = params['termino'];
       this.recipes = this.recipeService.searchRecipes(params['termino']);
-      console.log(this.recipes);
     });
   }
 

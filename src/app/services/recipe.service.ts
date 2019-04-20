@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
+//
 export interface Recipe {
   title: string;
   href: string;
@@ -18,10 +19,12 @@ export class RecipeService {
     console.log('servicio listo para usar');
   }
 
+    // llamada a la api mediante metedo get, para obtener las recetas.
   getRecipes() {
     return this.http.get('http://localhost:4200/api/');
   }
 
+  // compara las recetas dentro del array para encontrar coincidencias y muestra en pantalla de busqueda.
   searchRecipes(termino: string) {
     let recipesArr: Recipe[] = [];
     termino = termino.toLocaleLowerCase();

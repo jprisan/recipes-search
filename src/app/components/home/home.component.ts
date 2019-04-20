@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { RecipeService, Recipe } from 'src/app/services/recipe.service';
 import { Router } from '@angular/router';
+import { RecipeService } from 'src/app/services/recipe.service';
 
 @Component({
   selector: 'app-home',
@@ -18,7 +18,6 @@ export class HomeComponent implements OnInit {
 
     this.recipeService.getRecipes()
       .subscribe((data: any) => {
-        console.log(data.results);
         this.recipes = data.results;
       });
   }
