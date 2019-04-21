@@ -18,7 +18,11 @@ export class SearchRecipeComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute.params.subscribe(params => {
       this.termino = params['termino'];
-      this.recipes = this.recipeService.searchRecipes(params['termino']);
+      this.recipeService.getRecipesParams(this.termino)
+      .subscribe( (data: any) => {
+        this.recipes = data.results;
+        console.log(this.recipes)
+      })
     });
   }
 
