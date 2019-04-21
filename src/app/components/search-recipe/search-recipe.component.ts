@@ -11,18 +11,21 @@ export class SearchRecipeComponent implements OnInit {
 
   recipes: any[] = [];
   termino: string;
+  loading: boolean;
 
   constructor(private recipeService: RecipeService,
-              private activatedRoute: ActivatedRoute) { }
+              private activatedRoute: ActivatedRoute) {
+  }
 
   ngOnInit() {
+    this.loading = true;
     this.activatedRoute.params.subscribe(params => {
       this.termino = params['termino'];
       this.recipeService.getRecipesParams(this.termino)
-      .subscribe( (data: any) => {
-        this.recipes = data.results;
-        console.log(this.recipes)
-      })
+        .subscribe((data: any) => {
+          this.recipes = data;
+          this.loading = false;
+        });
     });
   }
 

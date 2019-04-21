@@ -10,15 +10,26 @@ import { RecipeService } from 'src/app/services/recipe.service';
 export class HomeComponent implements OnInit {
 
   recipes: any[] = [];
+  loading: boolean;
+  error: boolean;
+  errorMessage: string;
 
   constructor(private recipeService: RecipeService,
-              private router: Router) { }
+              private router: Router) {
+    this.loading = true;
+    this.error = false;
+  }
 
   ngOnInit() {
 
     this.recipeService.getRecipes()
       .subscribe((data: any) => {
-        this.recipes = data.results;
+        this.recipes = data;
+        this.loading = false;
+      }, (errorService) => {
+        this.error = true;
+        this.loading = false;
+        this.errorMessage = errorService;
       });
   }
 

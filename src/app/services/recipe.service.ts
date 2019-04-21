@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
+import { map } from 'rxjs/operators';
 //
 export interface Recipe {
   title: string;
@@ -15,18 +16,22 @@ export class RecipeService {
 
   private recipes: Recipe[];
 
-  constructor(private http: HttpClient) {
-    console.log('servicio listo para usar');
-  }
+  constructor(private http: HttpClient) {  }
 
   // llamada a la api mediante metedo get, para obtener las recetas para la home.
   getRecipes() {
-    return this.http.get('http://localhost:4200/api/');
+    return this.http.get('http://localhost:4200/api/')
+    .pipe(map((data: any) => {
+      return data.results;
+    }));
   }
 
   // llamada a la api mediante metedo get, para obtener las recetas para la busqueda.
   getRecipesParams(termino: string) {
-    return this.http.get(`http://localhost:4200/api/?q=${termino}`);
+    return this.http.get(`http://localhost:4200/api/?q=${termino}`)
+    .pipe(map((data: any) => {
+      return data.results;
+    }));
   }
 
 }

@@ -12,21 +12,21 @@ import { RecipeService } from './services/recipe.service';
 // components
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
-import { SearchComponent } from './components/search/search.component';
 import { HomeComponent } from './components/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { RecipeCardComponent } from './components/recipe-card/recipe-card.component';
 import { SearchRecipeComponent } from './components/search-recipe/search-recipe.component';
+import { LoadingComponent } from './components/shared/loading/loading.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    SearchComponent,
     HomeComponent,
     FooterComponent,
     RecipeCardComponent,
-    SearchRecipeComponent
+    SearchRecipeComponent,
+    LoadingComponent,
   ],
   imports: [
     BrowserModule,
