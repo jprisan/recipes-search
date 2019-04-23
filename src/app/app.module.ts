@@ -3,11 +3,11 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+// ng-bootstrap
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 // routes
 import { APP_ROUTING } from './app.routes';
-
-// service
-import { RecipeService } from './services/recipe.service';
 
 // components
 import { AppComponent } from './app.component';
@@ -32,10 +32,10 @@ import { LoadingComponent } from './components/shared/loading/loading.component'
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    NgbModule.forRoot(),
     APP_ROUTING,
-    HttpClientModule,
   ],
-  providers: [RecipeService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

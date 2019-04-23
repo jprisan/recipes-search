@@ -1,3 +1,4 @@
+<!-- template inicial de la aplicacion muestra recetas al azar -->
 <app-loading class="m-5 text-center" *ngIf="loading"></app-loading>
 
 <div *ngIf="error" class="alert alert-danger animated fadeIn">
@@ -8,13 +9,11 @@
 </div>
 
 <div *ngIf="!loading">
-  <h1>Recipes <small>Search delicious recipes</small></h1>
+  <h1>Recipes - <small>Search or choose your recipe</small></h1>
   <hr>
 
   <div class="card-columns">
-
     <app-recipe-card (recipeSelect)="verRecipe( $event )" [recipe]="recipe" [index]="i"
       *ngFor="let recipe of recipes; let i = index"></app-recipe-card>
-
   </div>
 </div>

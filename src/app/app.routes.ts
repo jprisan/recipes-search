@@ -6,7 +6,7 @@ import { SearchRecipeComponent } from './components/search-recipe/search-recipe.
 
 const APP_ROUTES: Routes = [
   { path: 'home', component: HomeComponent },
-   { path: 'buscar/:termino', component: SearchRecipeComponent },
+  { path: 'buscar/:termino', component: SearchRecipeComponent },
   { path: '**', pathMatch: 'full', redirectTo: 'home' }
 ];
 

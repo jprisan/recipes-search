@@ -9,9 +9,9 @@ import { RecipeService } from 'src/app/services/recipe.service';
 })
 export class SearchRecipeComponent implements OnInit {
 
-  recipes: any[] = [];
-  termino: string;
-  loading: boolean;
+   recipes: any[] = [];
+   termino: string;
+   loading: boolean;
 
   constructor(private recipeService: RecipeService,
               private activatedRoute: ActivatedRoute) {
